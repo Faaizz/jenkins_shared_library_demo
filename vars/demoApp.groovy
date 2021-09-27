@@ -23,7 +23,7 @@ def call(build_parameters) {
                     
                     sh '''#!/bin/bash -l
                         if test -f ".docker/test.docker-compose.yaml"; then
-                           docker-compose -f .docker/test.docker-compose.yaml up --abort-on-container-exit --exit-code-from ${TEST_SERVICE}
+                           /var/jenkins_home/docker-compose -f .docker/test.docker-compose.yaml up --abort-on-container-exit --exit-code-from ${TEST_SERVICE}
                         fi
                         '''
                 }
@@ -43,7 +43,7 @@ def call(build_parameters) {
                 }
                 sh '''#!/bin/bash -l
                     if test -f ".docker/test.docker-compose.yaml"; then
-                        docker-compose -f .docker/test.docker-compose.yaml down
+                        /var/jenkins_home/docker-compose -f .docker/test.docker-compose.yaml down
                     fi
                     '''
             }
