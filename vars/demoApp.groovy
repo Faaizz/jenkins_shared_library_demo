@@ -5,7 +5,7 @@ def call(build_parameters) {
 
     pipeline {
 
-        agent { label 'backendbuild' }
+        agent { any }
 
         environment {
             APPLICATION = "$application"
